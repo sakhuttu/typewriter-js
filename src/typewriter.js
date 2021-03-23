@@ -1,15 +1,16 @@
 /* Interface */
-function typewriteText(id, speed=100, textcolor='#000000', cursorcolor='#000000') {
-    new _eeTypewriter(id, speed, textcolor, cursorcolor);
+function typewriteText(id, speed=100, textcolor='#000000', cursor='|', cursorcolor='#000000') {
+    new _eeTypewriter(id=id, speed=speed, textcolor=textcolor, cursor=cursor, cursorcolor=cursorcolor);
 }    
 
 /* TYPEWRITER */
 var _eeTypewriterDict = {};  // For matching object with observed element
 class _eeTypewriter {
-    constructor(id, speed=100, textcolor='#000000', cursorcolor='#000000') {
+    constructor(id, speed, textcolor, cursor, cursorcolor) {
         this.id = id;
         this.speed = speed;
         this.textColor = textcolor;
+        this.cursor = cursor;
         this.cursorColor = cursorcolor;
         this.elem = null;
         this.text = '';
@@ -26,7 +27,7 @@ class _eeTypewriter {
         this.elem = document.getElementById(this.id);
         this.elem.style.height = this.elem.offsetHeight+"px";
         this.text = (this.elem.innerHTML).trim();
-        this.elem.innerHTML = "<span id='"+this.id+"_typewriting_text'></span><span id='"+this.id+"_typewriting_cursor'>_</span>"
+        this.elem.innerHTML = "<span id='"+this.id+"_typewriting_text'></span><span id='"+this.id+"_typewriting_cursor'>"+this.cursor+"</span>"
         this.textElem = document.getElementById(this.id+"_typewriting_text");
         this.cursorElem = document.getElementById(this.id+"_typewriting_cursor");
         this.textElem.style.color = this.textColor;

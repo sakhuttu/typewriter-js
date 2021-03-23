@@ -9,7 +9,7 @@ Simple Typewriter effect for website.
 -   Text content is set in the HTML (works well with SEO and fallback if JavaScript not enabled)
 -   Typing effects starts only when your element becomes visible
 -   Multiple elements on the same page can be used
--   Configure typing speed and separate color for text and cursor
+-   Configure typing speed, text color, cursor character and cursor color
 -   Plain JavaScript, no dependencies
 
 ## Options
@@ -23,9 +23,11 @@ Function arguments:
 | Name | Type | Default value | Description |
 | --- | --- | --- | --- |
 | id | String | null | id of the target DOM element to typewrite (mandatory) |
-| speed | Integer | 100 | Writing speed per character in milliseconds |
+| speed | Number | 100 | Writing speed per character in milliseconds |
 | textcolor | String | '#000000' | Hex color code of text |
+| cursor | String | '\|' | Character used as cursor |
 | cursorcolor | String | '#000000' | Hex color code of cursor |
+
 
 ## Example
 
@@ -45,6 +47,14 @@ Add id to element, which content you want to typewrite,
 
 Call typewriteText function using id of element, in any place of your HTML file.
 
+To use default values, you can just call with ID:
+
 ```js
-typewriteText("typewrite_this", speed=120, textcolor="#000000", cursorcolor="#7eed00");
+typewriteText("typewrite_this");
+```
+
+If you want to set your own options:
+
+```js
+typewriteText("typewrite_this", speed=120, textcolor="#000000", cursor="_", cursorcolor="#7eed00");
 ```
