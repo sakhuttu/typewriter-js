@@ -1,7 +1,12 @@
 /* Interface */
-function typewriteText(id, speed=100, textcolor='#000000', cursor='|', cursorcolor='#000000') {
-    new _eeTypewriter(id=id, speed=speed, textcolor=textcolor, cursor=cursor, cursorcolor=cursorcolor);
-}    
+
+function typewriteText(id, options = {}) {
+    new _eeTypewriter(id = id,
+                      speed = options.speed || 100,
+                      textcolor = options.textcolor || '#000000',
+                      cursor = options.cursor || '|',
+                      cursorcolor = options.cursorcolor || '#000000' );
+}
 
 /* TYPEWRITER */
 var _eeTypewriterDict = {};  // For matching object with observed element
@@ -25,11 +30,11 @@ class _eeTypewriter {
 
     initialize() {
         this.elem = document.getElementById(this.id);
-        this.elem.style.height = this.elem.offsetHeight+"px";
+        this.elem.style.height = this.elem.offsetHeight+'px';
         this.text = (this.elem.innerHTML).trim();
-        this.elem.innerHTML = "<span id='"+this.id+"_typewriting_text'></span><span id='"+this.id+"_typewriting_cursor'>"+this.cursor+"</span>"
-        this.textElem = document.getElementById(this.id+"_typewriting_text");
-        this.cursorElem = document.getElementById(this.id+"_typewriting_cursor");
+        this.elem.innerHTML = '<span id="'+this.id+'_typewriting_text"></span><span id="'+this.id+'_typewriting_cursor">'+this.cursor+'</span>'
+        this.textElem = document.getElementById(this.id+'_typewriting_text');
+        this.cursorElem = document.getElementById(this.id+'_typewriting_cursor');
         this.textElem.style.color = this.textColor;
         this.cursorElem.style.color = this.cursorColor;
 
@@ -44,7 +49,7 @@ class _eeTypewriter {
             if (t.charCount <= t.text.length) {
                 let char = t.text.charAt(t.charCount);
                 if ((char == '<') && (t.text.substring(t.charCount,t.charCount+4).toLowerCase() == '<br>')) {
-                    char="<br>";
+                    char='<br>';
                     t.charCount += 3;
                 }
                 t.textElem.innerHTML += char;

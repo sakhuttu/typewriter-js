@@ -12,49 +12,46 @@ Simple Typewriter effect for website.
 -   Configure typing speed, text color, cursor character and cursor color
 -   Plain JavaScript, no dependencies
 
-## Options
+## Interface
 
-Function interface:
+Function syntax:
 ```js
-typewriteText(id, speed, textcolor, cursorcolor);
+typewriteText(id[, options={[speed: 100][, textcolor: '#000000'][, cursor: '|'][, cursorcolor: '#000000']}] );
 ```
 
-Function arguments:
+### Parameters
+
 | Name | Type | Default value | Description |
 | --- | --- | --- | --- |
-| id | String | null | id of the target DOM element to typewrite (mandatory) |
-| speed | Number | 100 | Writing speed per character in milliseconds |
-| textcolor | String | '#000000' | Hex color code of text |
-| cursor | String | '\|' | Character used as cursor |
-| cursorcolor | String | '#000000' | Hex color code of cursor |
+| id | String | null | id of the target DOM element to typewrite. Mandatory. |
+| speed | Number | 100 | Writing speed per character in milliseconds. Optional. |
+| textcolor | String | '#000000' | Hex color code of text. Optional. |
+| cursor | String | '\|' | Character used as cursor. Optional. |
+| cursorcolor | String | '#000000' | Hex color code of cursor. Optional. |
 
+## Examples
 
-## Example
-
-Import typewriter.js in your HTML file.
+Import typewriter.js in your HTML file and add id to element you want to typewrite.
 
 ```html
 <script src="typewriter.js"></script>
-```
 
-Add id to element, which content you want to typewrite, 
-
-```html
-<h1 id="typewrite_this">
+<h1 id="my_typewrite">
     Typewrite this text<br> on multiple<br> rows.
 </h1>
 ```
 
 Call typewriteText function using id of element, in any place of your HTML file.
+You can call use any options you wish and rest of the values will be as default.
 
-To use default values, you can just call with ID:
-
+Here are some example way to start typewriting:
 ```js
-typewriteText("typewrite_this");
-```
+// Use default values
+typewriteText('my_typewrite');
 
-If you want to set your own options:
+// Define cursor character and cursor color only. Rest as default.
+typewriteText('my_typewrite', options={cursor: '_', cursorcolor: '#7eed00'});
 
-```js
-typewriteText("typewrite_this", speed=120, textcolor="#000000", cursor="_", cursorcolor="#7eed00");
+// Define all possible options separately
+typewriteText('my_typewrite', options={speed: 120, textcolor: '#222222', cursor: '_', cursorcolor: '#7eed00'});
 ```
