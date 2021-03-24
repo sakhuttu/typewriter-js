@@ -9,14 +9,15 @@ Simple Typewriter effect for website.
 -   Text content is set in the HTML (works well with SEO and fallback if JavaScript not enabled)
 -   Typing effects starts only when your element becomes visible
 -   Multiple elements on the same page can be used
--   Configure typing speed, text color, cursor character and cursor color
+-   Configure typing speed, cursor character and cursor color
+-   Text style is untouched, so it can be set in your CSS normally
 -   Plain JavaScript, no dependencies
 
 ## Interface
 
 Function syntax:
 ```js
-typewriteText(id[, options={[speed: 100][, textcolor: '#000000'][, cursor: '|'][, cursorcolor: '#000000']}] );
+typewriteText(id[, options={[speed: 100][, cursor: '|'][, cursorcolor: '#000000']}] );
 ```
 
 ### Parameters
@@ -25,7 +26,6 @@ typewriteText(id[, options={[speed: 100][, textcolor: '#000000'][, cursor: '|'][
 | --- | --- | --- | --- |
 | id | String | null | id of the target DOM element to typewrite. Mandatory. |
 | speed | Number | 100 | Writing speed per character in milliseconds. Optional. |
-| textcolor | String | '#000000' | Hex color code of text. Optional. |
 | cursor | String | '\|' | Character used as cursor. Optional. |
 | cursorcolor | String | '#000000' | Hex color code of cursor. Optional. |
 
@@ -50,8 +50,8 @@ Here are some example way to start typewriting:
 typewriteText('my_typewrite');
 
 // Define cursor character and cursor color only. Rest as default.
-typewriteText('my_typewrite', options={cursor: '_', cursorcolor: '#7eed00'});
+typewriteText('my_typewrite', options={cursorcolor: '#7eed00'});
 
 // Define all possible options separately
-typewriteText('my_typewrite', options={speed: 120, textcolor: '#222222', cursor: '_', cursorcolor: '#7eed00'});
+typewriteText('my_typewrite', options={speed: 120, cursor: '_', cursorcolor: '#7eed00'});
 ```

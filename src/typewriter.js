@@ -1,9 +1,7 @@
 /* Interface */
-
 function typewriteText(id, options = {}) {
     new _eeTypewriter(id = id,
                       speed = options.speed || 100,
-                      textcolor = options.textcolor || '#000000',
                       cursor = options.cursor || '|',
                       cursorcolor = options.cursorcolor || '#000000' );
 }
@@ -11,10 +9,9 @@ function typewriteText(id, options = {}) {
 /* TYPEWRITER */
 var _eeTypewriterDict = {};  // For matching object with observed element
 class _eeTypewriter {
-    constructor(id, speed, textcolor, cursor, cursorcolor) {
+    constructor(id, speed, cursor, cursorcolor) {
         this.id = id;
         this.speed = speed;
-        this.textColor = textcolor;
         this.cursor = cursor;
         this.cursorColor = cursorcolor;
         this.elem = null;
@@ -35,7 +32,6 @@ class _eeTypewriter {
         this.elem.innerHTML = '<span id="'+this.id+'_typewriting_text"></span><span id="'+this.id+'_typewriting_cursor">'+this.cursor+'</span>'
         this.textElem = document.getElementById(this.id+'_typewriting_text');
         this.cursorElem = document.getElementById(this.id+'_typewriting_cursor');
-        this.textElem.style.color = this.textColor;
         this.cursorElem.style.color = this.cursorColor;
 
         _eeObserver.observe(this.elem);
