@@ -6,12 +6,13 @@ Simple Typewriter effect for website.
 
 ## Key features
 
+-   Plain JavaScript, no dependencies
 -   Text content is set in the HTML (works well with SEO and fallback if JavaScript not enabled)
 -   Typing effects starts only when your element becomes visible
--   Multiple elements on the same page can be used
 -   Configure typing speed, cursor character and cursor color
 -   Text style is untouched, so it can be set in your CSS normally
--   Plain JavaScript, no dependencies
+-   Multiple elements on the same page can be used
+-   Line breaks with <br> tag can be used in target text 
 
 ## Interface
 
