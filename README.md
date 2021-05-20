@@ -12,7 +12,7 @@ Simple Typewriter effect for website.
 -   Configure typing speed, cursor character and cursor color
 -   Text style is untouched, so it can be set in your CSS normally
 -   Multiple elements on the same page can be used
--   Line breaks with <br> tag can be used in target text 
+-   Line breaks with `<br>` tag can be used in target text 
 
 ## Interface
 
